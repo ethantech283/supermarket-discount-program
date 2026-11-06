@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+// Function to calculate the discount
+double calculateDiscount(double purchaseAmount)
+{
+    double discountRate;
+
+    if (purchaseAmount < 5000)
+    {
+        discountRate = 0.05;
+    }
+    else if (purchaseAmount >= 5000 && purchaseAmount <= 9999)
+    {
+        discountRate = 0.10;
+    }
+    else
+    {
+        discountRate = 0.15;
+    }
+
+    return purchaseAmount * discountRate;
+}
+
+int main()
+{
+    double purchaseAmount;
+    double discountAmount;
+    double finalAmount;
+
+    // Prompt the user to enter the purchase amount
+    printf("Enter the purchase amount (KSh): ");
+    scanf("%lf", &purchaseAmount);
+
+    // Call the function to calculate the discount
+    discountAmount = calculateDiscount(purchaseAmount);
+
+    // Calculate the final amount payable
+    finalAmount = purchaseAmount - discountAmount;
+
+    // Display the results
+    printf("\n----- SUPERMARKET RECEIPT -----\n");
+    printf("Purchase Amount: KSh %.2f\n", purchaseAmount);
+    printf("Discount Amount: KSh %.2f\n", discountAmount);
+    printf("Final Amount Payable: KSh %.2f\n", finalAmount);
+
+    return 0;
+}
